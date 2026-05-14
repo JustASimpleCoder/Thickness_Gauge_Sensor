@@ -1,0 +1,27 @@
+Thickness Gauge Sensor using two ultrasonic sensors desinged for thin material.
+
+This follows ASTM  E797 "Standard Practice for Measuring Thickness by Manual Ultrasonic Pulse-Echo Contact Method"
+
+Background 
+```
+d_ultrasonic = v_sound*t/2
+```
+where 
+  - v_sound is the speed of sound
+  - t is the recorded duration of the pulse from transmitter to reciever of an ultrasonic sensor
+
+Placing sensors apart at a known reference distance, d_reference, we can determine the thickness by doing 
+```
+  d_thickness = d_reference - (d_ultrasonic_1 + d_ultrasonic_2)
+```
+
+If ultrasonic sensor is greater than 10Hz, than we can have a wavelength of 
+```
+lambda  = v_sound / frequency 
+        = (343 m/s) / (10 Mhz)
+        = 34.3 micrometers
+```
+
+Thus we can measuere small micrometer distance to a precision of 34.3 micrometers. for 100 MHz we can get 3.43 micrometer resolution. 
+
+The code in this repository is a simple proof of concept using arduino libraries. 
